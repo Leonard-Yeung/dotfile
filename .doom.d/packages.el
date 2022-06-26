@@ -8,47 +8,56 @@
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
-(package! auto-complete)
-(package! auto-complete-clang)
 (package! rainbow-mode)
 (package! rainbow-delimiters)
-(package! undo-tree)
 (package! mmm-mode)
 (package! web-mode)
 (package! web-beautify)
 (package! simple-httpd)
-(package! js2-mode)
 (package! skewer-mode)
 (package! impatient-mode)
 (package! js2-mode)
-(package! json-mode)
-(package! lua-mode)
+(package! js2-refactor)
 (package! which-key)
-(package! tss)
 (package! ac-js2)
 (package! good-scroll)
-(package! centaur-tabs)
 (package! aggressive-indent)
-(package! tide)
 (package! neotree)
-(package! rjsx-mode)
-
-  ;; To install a package directly from a remote git repo, you must specify a
+(package! smart-mode-line)
+(package! whitespace-cleanup-mode)
+(package! format-all)
+(package! pdf-tools)
+(package! multifiles)
+(package! solidity-mode)
+(package! dash)
+(package! eglot)
+(package! helm)
+(package! helm-company)
+(package! company-quickhelp)
+(package! rtags)
+(package! company-c-headers)
+(package! company-shell)
+(package! company-restclient)
+(package! jquery-doc)
+(package! company-solidity)
+(package! company-statistics)
+(package! shut-up)
+;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:
 ;; https://github.com/raxod502/straight.el#the-recipe-format
-;(package! another-package
-;  :recipe (:host github :repo "username/repo"))
+                                        ;(package! another-package
+                                        ;  :recipe (:host github :repo "username/repo"))
 
 ;; If the package you are trying to install does not contain a PACKAGENAME.el
 ;; file, or is located in a subdirectory of the repo, you'll need to specify
 ;; `:files' in the `:recipe':
-;(package! this-package
-;  :recipe (:host github :repo "username/repo"
-;           :files ("some-file.el" "src/lisp/*.el")))
+                                        ;(package! this-package
+                                        ;  :recipe (:host github :repo "username/repo"
+                                        ;           :files ("some-file.el" "src/lisp/*.el")))
 
 (package! beacon
   :recipe (:host github :repo "Malabarba/beacon"
-            :files ("beacon.el")))
+           :files ("beacon.el")))
 
 (package! diff-hl-mode
   :recipe (:host github :repo "dgutov/diff-hl"

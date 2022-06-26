@@ -1,0 +1,1 @@
+/Users/leonardyeung/.doom.d/

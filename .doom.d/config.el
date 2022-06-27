@@ -75,10 +75,6 @@
 (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 (global-diff-hl-mode)
 (autoload 'helm-company "helm-company") ;; Not necessary if using ELPA package
-(eval-after-load 'company
-  '(progn
-     (define-key company-mode-map (kbd "C-:") 'helm-company)
-     (define-key company-active-map (kbd "C-:") 'helm-company)))
 (after! company-quickhelp
   (setq company-quickhelp-delay .2))
 (add-to-list 'company-backends 'company-restclient)
@@ -119,14 +115,10 @@
 ;; formats the buffer before saving
 (add-hook 'before-save-hook 'tide-format-before-save)
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
-(add-to-list 'load-path "~/.emacs.d/tern/emacs/")
-(autoload 'tern-mode "tern.el" nil t)
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 (add-to-list 'company-backends 'company-tern)
-(company-tng-configure-default)
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-(global-set-key (kbd "C-c /") 'company-files)        ; Force complete file names on "C-c /" key
 (add-hook 'after-init-hook #'company-statistics-mode)
 
 ;; (xterm-mouse-mode -1)

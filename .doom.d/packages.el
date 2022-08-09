@@ -54,3 +54,4 @@
 (package! prettier-js)
 (package! clang-format)
 (package! solidity-flycheck)
+(package! dimmer)

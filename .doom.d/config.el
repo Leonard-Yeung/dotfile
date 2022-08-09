@@ -43,9 +43,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq company-dabbrev-minimum-length 1)
-(setq company-idle-delay 0.1)
+(setq company-idle-delay 0.3)
 (setq company-minimum-prefix-length 1)
-(setq company-tooltip-idle-delay 0.4)
+(setq company-tooltip-idle-delay 0.3)
 (setq company-tooltip-align-annotations t)
 (setq company-tooltip-margin 2)
 (setq company-dabbrev-ignore-case t)
@@ -76,20 +76,24 @@
 (after! js2-mode
   (set-company-backend! 'js2-mode 'company-tide 'company-yasnippet))
 (setq display-time-mode 1)
+(setq lsp-log-io nil)
 (setq lsp-ui-doc-header t)
 (setq lsp-ui-doc-include-signature t)
+(setq lsp-ui-doc-delay 1)
+(setq lsp-ui-doc-show-with-cursor 1)
 (setq lsp-ui-doc-border (face-foreground 'default))
 (setq lsp-ui-sideline-enable nil)
 (setq lsp-ui-sideline-ignore-duplicate t)
 (setq lsp-ui-sideline-show-code-actions nil)
-(setq beacon-mode 1)
+(setq lsp-diagnostic-clean-after-change t)
+(beacon-mode 1)
 (setq doom-modeline-icon t)
 (setq doom-modeline-major-mode-icon t)
 (setq doom-modeline-major-mode-color-icon t)
 (setq doom-modeline-buffer-state-icon t)
 (setq doom-modeline-buffer-modification-icon t)
 (setq doom-modeline-buffer-name t)
-(setq doom-modeline-minor-modes t)
+(setq doom-modeline-minor-modes nil)
 (setq doom-modeline-indent-info t)
 (setq doom-modeline-workspace-name t)
 (setq doom-modeline-lsp t)
@@ -97,6 +101,9 @@
 (setq doom-modeline-env-version t)
 ;;(setq yas-snippet-dirs "/Users/leonardyeung/.emacs.d/.local/straight/repos/snippets")
 (setq +treemacs-git-mode 'deferred)
+(setq flycheck-check-syntax-automatically '(save mode-enable))
+(setq dimmer-mode t)
+(setq dimmer-fraction 0.3)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.

@@ -78,7 +78,10 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git autojump battery colorize colored-man-pages copypath git-auto-fetch gitignore git-lfs macos nvm pip thefuck yarn branch brew command-not-found npm zsh-interactive-cd zsh-exa-ls-plugin zsh-syntax-highlighting zsh-256color)
+plugins=(git autojump battery colorize colored-man-pages copypath 
+    git-auto-fetch gitignore git-lfs macos nvm pip thefuck yarn 
+    branch brew command-not-found npm zsh-interactive-cd aliases alias-finder
+    zsh-exa-ls-plugin zsh-syntax-highlighting zsh-256color)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,8 +117,6 @@ export PATH="~/.nvm/versions/node/v16.15.1/bin/:$PATH"
 export PATH="$PATH:~/.emacs.d/bin/"
 export PATH="$PATH:/usr/local/bin/"
 
-alias doom="$HOME/.emacs.d/bin/doom"
-alias ex a-la="exa -la"
 alias exa="exa --icons"
 # alias emacs="emacs-28.1 --daemon && emacsclient -t"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

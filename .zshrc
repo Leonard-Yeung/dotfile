@@ -78,7 +78,7 @@ ZSH_CUSTOM=~/.oh-my-zsh/custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git auto-notify zsh-autocomplete autoupdate branch-manager cd-ls zsh-exa-ls-plugin zsh-syntax-highlighting zsh-256color zsh-nvm)
+plugins=(git autojump battery colorize colored-man-pages copypath git-auto-fetch gitignore git-lfs macos nvm pip thefuck yarn branch brew command-not-found npm zsh-interactive-cd zsh-exa-ls-plugin zsh-syntax-highlighting zsh-256color)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+GIT_AUTO_FETCH_INTERVAL=1200
 export PATH="$PATH:/Users/leonardyeung/Library/Python/3.8/bin:$HOME/.cargo/bin"
 export PATH="/usr/local/opt/grep/libexec/gnubin:/usr/local/bin:$PATH"
 export PATH="~/.nvm/versions/node/v16.15.1/bin/:$PATH"
@@ -135,3 +136,5 @@ export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

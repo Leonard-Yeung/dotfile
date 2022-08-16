@@ -114,10 +114,11 @@ GIT_AUTO_FETCH_INTERVAL=1200
 export PATH="$PATH:/Users/leonardyeung/Library/Python/3.8/bin:$HOME/.cargo/bin"
 export PATH="/usr/local/opt/grep/libexec/gnubin:/usr/local/bin:$PATH"
 export PATH="~/.nvm/versions/node/v16.15.1/bin/:$PATH"
-export PATH="$PATH:~/.emacs.d/bin/"
-export PATH="$PATH:/usr/local/bin/"
+export PATH="$PATH:~/.emacs.d/bin"
+export PATH="$PATH:/usr/local/bin"
 
 alias exa="exa --icons"
+alias doom="~/.emacs.d/bin/doom"
 # alias emacs="emacs-28.1 --daemon && emacsclient -t"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

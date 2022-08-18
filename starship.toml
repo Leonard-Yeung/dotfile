@@ -1,25 +1,12 @@
 [git_branch]
 always_show_remote = true
 
-[git_commit]
-commit_hash_length = 8
-style = "bold orange"
-disabled = false
-
-[git_state]
-disabled = false
-
 [git_metrics] 
 disabled = false
 
-[git_status]
-disabled = false
-
-[nodejs]
-disabled = false
-
-[shell]
-disabled = false
+[directory]
+style = "bright-purple"
+format = "[>]($style) [$path]($style)[$read_only]($read_only_style) "
 
 [sudo]
 disabled = false
@@ -27,20 +14,20 @@ disabled = false
 [time]
 disabled = false
 
-[username]
-disabled = false
-
-[directory]
-disabled = false
-
 [status]
-disabled = false
-
-[jobs]
-disabled = false
-
-[line_break]
+format = "[⚠️ ${symbol}${signal_name}${status}]($style)"
 disabled = false
 
 [memory_usage]
 disabled = false
+threshold = 0
+style = "bold cyan"
+format = "[${ram}( => ${ram_pct})]($style) [>]($style) "
+
+[username]
+disabled = false
+show_always = true
+format = "[@${user}]($style) "
+
+[nodejs]
+detect_extensions = ["js", "mjs", "cjs", "jsx", "ts", "mts", "cts", "tsx"]

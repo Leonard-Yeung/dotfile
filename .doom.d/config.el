@@ -42,8 +42,10 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+
+(add-hook 'after-init-hook 'global-company-mode)
 (setq company-dabbrev-minimum-length 1)
-(setq company-idle-delay 0.3)
+(setq company-idle-delay 0.1)
 (setq company-minimum-prefix-length 1)
 (setq company-tooltip-idle-delay 0.3)
 (setq company-tooltip-align-annotations t)

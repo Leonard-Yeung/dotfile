@@ -24,7 +24,7 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 14 :weight 'Regular))
+(setq doom-font (font-spec :family "Hack" :size 14 :weight 'Regular))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -56,8 +56,8 @@
 (after! projectile
     (setq projectile-project-root-files-bottom-up
         (remove ".git" projectile-project-root-files-bottom-up)))
-(setq solidity-solc-path "/usr/local/bin/solc")
-(setq solidity-solium-path "/Users/leonardyeung/.nvm/versions/node/v16.15.1/bin/solium")
+(setq solidity-solc-path "/usr/bin/solc")
+(setq solidity-solium-path "/home/leonard/.config/yarn/global/node_modules/.bin/solium")
 (setq solidity-comment-style 'slash)
 (add-hook 'js2-mode-hook 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)

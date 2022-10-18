@@ -44,14 +44,14 @@
 ;; change `org-directory'. It must be set before org loads!
 
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-dabbrev-minimum-length 1)
-(setq company-idle-delay 0.1)
-(setq company-minimum-prefix-length 1)
-(setq company-tooltip-idle-delay 0.3)
-(setq company-tooltip-align-annotations t)
-(setq company-tooltip-margin 2)
-(setq company-dabbrev-ignore-case t)
-(setq company-dabbrev-other-buffers t)
+;;(setq company-dabbrev-minimum-length 1)
+;;(setq company-idle-delay 0.1)
+;;(setq company-minimum-prefix-length 1)
+;;(setq company-tooltip-idle-delay 0.3)
+;;(setq company-tooltip-align-annotations t)
+;;(setq company-tooltip-margin 2)
+;;(setq company-dabbrev-ignore-case t)
+;;(setq company-dabbrev-other-buffers t)
 (setq org-directory "~/org/")
 (after! projectile
     (setq projectile-project-root-files-bottom-up
@@ -70,13 +70,13 @@
 (setq flycheck-solidity-solc-addstd-contracts t)
 (+global-word-wrap-mode +1)
 (setq clang-format-style-option "llvm")
-(add-hook 'solidity-mode-hook
-	(lambda ()
-	(set (make-local-variable 'company-backends)
-		(append '((company-solidity company-capf company-dabbrev-code))
-			company-backends))))
-(after! js2-mode
-  (set-company-backend! 'js2-mode 'company-tide 'company-yasnippet))
+;;(add-hook 'solidity-mode-hook
+;;	(lambda ()
+;;	(set (make-local-variable 'company-backends)
+;;		(append '((company-solidity company-capf company-dabbrev-code))
+;;			company-backends))))
+;;(after! js2-mode
+;;  (set-company-backend! 'js2-mode 'company-tide 'company-yasnippet))
 (setq display-time-mode 1)
 (setq lsp-log-io nil)
 (setq lsp-ui-doc-header t)
@@ -103,7 +103,6 @@
 (setq doom-modeline-env-version t)
 ;;(setq yas-snippet-dirs "/Users/leonardyeung/.emacs.d/.local/straight/repos/snippets")
 (setq +treemacs-git-mode 'deferred)
-(setq flycheck-check-syntax-automatically '(save mode-enable))
 (setq dimmer-mode t)
 (setq dimmer-fraction 0.3)
 

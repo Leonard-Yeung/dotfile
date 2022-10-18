@@ -1,0 +1,3 @@
+1663644754594:import scala.collection.mutable.ListBuffer\n\ndef double(ints: List[Int]): List[Int] =\n  val buffer = new ListBuffer[Int]()\n  for i <- ints do\n    buffer += i * 2\n  buffer.toList\n\nval oldNumbers = List(1, 2, 3)\nval newNumbers = double(oldNumbers)
+1663644760373:help
+1663644767434:exit

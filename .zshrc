@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -135,8 +128,11 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export STARSHIP_CONFIG=~/.config/starship.toml
+export PATH="$PATH:/usr/local/bin/:~/.local/share/bin/:/usr/local/lib/:/usr/bin/"
+export PATH="$PATH:/usr/local/lib/python3.10/:/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages"
+export PATH="$PATH:~/.emacs.d/bin/"
+alias doom="~/.emacs.d/bin/doom"
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/example/non/default/path/starship.toml
-
+export PATH="$PATH:/usr/local/lib/python3.10/site-packages/"
+export PATH="$PATH:/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/"

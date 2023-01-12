@@ -78,4 +78,4 @@ M.nvimtree = {
   },
 }
 
-eturn M
+return M

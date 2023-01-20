@@ -29,7 +29,8 @@ zmodule duration-info
 zmodule git-info
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 zmodule asciiship
-
+zmodule homebrew
+zmodule pacman
 #
 # Completion
 #
@@ -39,7 +40,8 @@ zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
 # completion must be sourced after all modules that add completion definitions.
 zmodule completion
-
+zmodule exa
+zmodule fzf
 #
 # Modules that must be initialized last
 #
@@ -72,6 +74,8 @@ zmodule https://github.com/changyuheng/zsh-interactive-cd.git
 zmodule https://github.com/paulmelnikow/zsh-startup-timer.git
 zmodule https://github.com/laggardkernel/zsh-thefuck.git
 zmodule https://github.com/lukechilds/zsh-better-npm-completion.git
-zmodule https://github.com/g-plane/zsh-yarn-autocompletions.git --source yarn-autocompletions.plugin.zsh
+zmodule https://github.com/g-plane/zsh-yarn-autocompletions.git
+zmodule https://github.com/zsh-users/zsh-apple-touchbar
+zmodule https://github.com/bigH/git-fuzzy
 # }}} End configuration added by Zim install
 

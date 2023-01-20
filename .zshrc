@@ -135,13 +135,18 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-export STARSHIP_CONFIG=~/.config/starship.toml
-export PATH="$PATH:/usr/local/bin/:~/.local/share/bin/:/usr/local/lib/:/usr/bin/"
-export PATH="$PATH:/usr/local/lib/python3.10/:/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages"
-export PATH="$PATH:~/.emacs.d/bin/"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias doom="~/.emacs.d/bin/doom"
+alias ls="exa"
+alias pip="pip3"
+export PATH="/usr/local/bin:/usr/bin:/home/leonard/.local/bin:/home/leonard/.yarn/bin"
 eval "$(starship init zsh)"
 export PATH="$PATH:/usr/local/lib/python3.10/site-packages/"
 export PATH="$PATH:/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/"
 export STARSHIP_CONFIG=~/starship.toml
 eval $(keychain --eval --quiet id_ed25519 github)
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export GLFW_IM_MODULE=ibus

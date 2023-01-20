@@ -34,7 +34,3 @@ chmod +x coursier
   -r sonatype:snapshots \
   -o /usr/local/bin/metals-emacs -f
 ```
-
-### Chad Neovim Setup
-Put `./custom_chadnv_config` into `~/.config/nvim/lua/` and rename the directory into `custom`
-Then, in the vim command line, enter `:PackerSync`, `:MasonInstallAll`

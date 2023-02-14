@@ -62,7 +62,7 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
 #zmodule romkatv/powerlevel10k --use degit
 zmodule https://github.com/akash329d/zsh-alias-finder.git
-zmodule https://github.com/xylous/alias-zsh.git
+#zmodule https://github.com/xylous/alias-zsh.git
 zmodule https://github.com/zshzoo/cd-ls.git
 zmodule https://github.com/zuxfoucault/colored-man-pages_mod.git
 zmodule https://github.com/zpm-zsh/colorize.git

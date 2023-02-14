@@ -1,3 +1,4 @@
+command_timeout = 100000000000
 [git_branch]
 always_show_remote = true
 
@@ -31,3 +32,4 @@ format = "[@${user}]($style) "
 
 [nodejs]
 detect_extensions = ["js", "mjs", "cjs", "jsx", "ts", "mts", "cts", "tsx"]
+

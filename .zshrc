@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -140,6 +133,23 @@ export PATH="$PATH:/usr/local/bin/:~/.local/share/bin/:/usr/local/lib/:/usr/bin/
 export PATH="$PATH:/usr/local/lib/python3.10/:/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages"
 export PATH="$PATH:~/.emacs.d/bin/"
 alias doom="~/.emacs.d/bin/doom"
+alias grep='ggrep'
 eval "$(starship init zsh)"
 export PATH="$PATH:/usr/local/lib/python3.10/site-packages/"
 export PATH="$PATH:/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/"
+export PATH="$PATH:/Users/leonardyeung/.cargo/bin"
+export PATH="$PATH:/Users/leonardyeung/.local/share/neovim/bin"
+export PATH="$PATH:/Users/leonardyeung/.nvm/versions/node/v16.19.0/bin"
+export PATH="$PATH:/usr/local/opt/python@3.10/libexec/bin"
+export PATH="$PATH:/Users/leonardyeung/go/bin/"
+export PATH="$PATH:/usr/local/opt/grep/libexec/gnubin"
+# export PATH="$PATH:/usr/local/opt/openjdk/bin"
+# export PATH="$PATH:~/Library/Application\ Support/Coursier/bin"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/Cellar/tfenv/3.0.0/versions/1.3.7/terraform terraform
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+export PATH="$PATH:/usr/local/include"
+eval $(thefuck --alias)

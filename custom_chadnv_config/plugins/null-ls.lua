@@ -25,7 +25,6 @@ local sources = {
   b.diagnostics.cpplint,
   b.diagnostics.dotenv_linter,
   b.diagnostics.eslint,
-  b.diagnostics.gccdiag,
   b.diagnostics.gitlint,
   b.diagnostics.jsonlint,
   b.diagnostics.luacheck,
@@ -37,6 +36,7 @@ local sources = {
   b.diagnostics.sqlfluff,
   b.diagnostics.stylelint,
   b.diagnostics.tidy,
+  b.diagnostics.tfsec,
   b.diagnostics.tsc,
   b.diagnostics.yamllint,
   b.diagnostics.zsh,
@@ -57,6 +57,7 @@ local sources = {
   b.formatting.sqlformat,
   b.formatting.trim_newlines,
   b.formatting.trim_whitespace,
+  b.formatting.terraform_fmt,
   b.formatting.yamlfmt,
   b.hover.dictionary
 }

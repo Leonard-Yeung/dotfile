@@ -28,6 +28,7 @@ M.treesitter = {
     "solidity",
     "sql",
     "svelte",
+    "terraform",
     "typescript",
     "yaml"
   },
@@ -66,6 +67,7 @@ M.mason = {
     "solhint",
     "sqlls",
     "svelte-language-server",
+    "terraform-ls",
     "vim-language-server",
     "yaml-language-server",
   },

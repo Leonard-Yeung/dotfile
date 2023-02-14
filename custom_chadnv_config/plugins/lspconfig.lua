@@ -25,6 +25,7 @@ local servers = {
   "sqls",
   "svelte",
   "syntax_tree",
+  "terraformls",
   "tsserver",
   "vimls",
   "vuels",

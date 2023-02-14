@@ -25,9 +25,9 @@ return {
     override_options = overrides.treesitter,
   },
 
-  ["williamboman/mason.nvim"] = { override_options = overrides.mason },
+  ["williamboman/mason.nvim"] = { override_options = { overrides.mason } },
 
-  ["kyazdani42/nvim-tree.lua"] = { override_options = overrides.nvimtree },
+  ["nvim-tree/nvim-tree.lua"] = { override_options = { overrides.nvimtree } },
 
   -- Install a plugin
   ["max397574/better-escape.nvim"] = {
@@ -147,9 +147,13 @@ return {
     end,
   },
 
-  ["hashivim/vim-terraform"] = {
+  ["hashivim/vim-terraform"] = {},
 
-  }
+  ["nvim-orgmode/orgmode"] = {
+    config = function()
+      require("orgmode").setup_ts_grammar()
+    end,
+  },
 
   -- ["luk400/vim-lichess"] = {
   -- },

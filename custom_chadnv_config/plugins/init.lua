@@ -155,8 +155,8 @@ return {
     end,
   },
 
-  -- ["luk400/vim-lichess"] = {
-  -- },
+  ["luk400/vim-lichess"] = {
+  },
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
 }

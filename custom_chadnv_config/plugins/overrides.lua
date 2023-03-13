@@ -48,7 +48,7 @@ M.mason = {
     "angular-language-server",
     "bash-language-server",
     "clang-format",
-    "clangd",
+    -- "clangd",
     "cmake-language-server",
     "cssmodules-language-server",
     "dockerfile-language-server",

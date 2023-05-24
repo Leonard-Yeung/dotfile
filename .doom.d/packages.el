@@ -48,10 +48,3 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-
-(package! lsp-ui)
-(package! beacon)
-(package! prettier-js)
-(package! clang-format)
-(package! solidity-flycheck)
-(package! dimmer)

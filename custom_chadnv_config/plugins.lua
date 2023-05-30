@@ -23,9 +23,17 @@ local plugins = {
     }, -- override plugin configs
     {"williamboman/mason.nvim", opts = overrides.mason},
 
-    {"nvim-treesitter/nvim-treesitter", opts = overrides.treesitter},
-
-    {"nvim-tree/nvim-tree.lua", opts = overrides.nvimtree}, -- Install a plugin
+    {"nvim-treesitter/nvim-treesitter", opts = overrides.treesitter}, {
+        "nvim-tree/nvim-tree.lua",
+        opts = overrides.nvimtree,
+        config = function()
+            require("nvim-tree").setup {
+                sync_root_with_cwd = true,
+                respect_buf_cwd = true,
+                update_focused_file = {enable = true, update_root = true}
+            }
+        end
+    }, -- Install a plugin
     {
         "max397574/better-escape.nvim",
         event = "InsertEnter",
@@ -40,6 +48,7 @@ local plugins = {
         config = function() require("lspfuzzy").setup {} end
     }, {"weilbith/nvim-code-action-menu", cmd = "CodeActionMenu"}, {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        lazy = false,
         config = function() require("lsp_lines").setup() end
     }, {
         "rest-nvim/rest.nvim",
@@ -78,7 +87,17 @@ local plugins = {
                 yank_dry_run = true
             }
         end
+    }, {
+        "ahmedkhalf/project.nvim",
+        lazy = false,
+        config = function()
+            require("project_nvim").setup {
+                require("telescope").load_extension "projects"
+            }
+        end
     }
+    -- {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-path"},
+    -- {"hrsh7th/cmp-cmdline"}, {"hrsh7th/nvim-cmp"}, {"saadparwaiz1/cmp_luasnip"}
     -- To make a plugin not be loaded
     -- {
     --   "NvChad/nvim-colorizer.lua",

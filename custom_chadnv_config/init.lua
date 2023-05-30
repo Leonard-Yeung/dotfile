@@ -5,3 +5,10 @@
 --   command = "tabdo wincmd =",
 -- })
 vim.diagnostic.config {virtual_text = false}
+vim.cmd [[
+    set autoread
+    augroup AutoRead
+        autocmd!
+        autocmd CursorHold * checktime
+    augroup END
+]]

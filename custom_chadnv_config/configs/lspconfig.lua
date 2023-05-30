@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
 local servers = {
-    "html", "cssls", "clangd", "angularls", "asm_lsp", "bashls", "cmake",
+    "html", "cssls", "clangd", "asm_lsp", "bashls", "cmake",
     "dockerls", "eslint", "graphql", "jdtls", "jsonls", "lua_ls", "metals",
     "pylsp", "rls", "solidity_ls_nomicfoundation", "svelte", "terraform_lsp",
     "vuels", "yamlls"

@@ -7,6 +7,7 @@ local plugins = {
 
     {
         "neovim/nvim-lspconfig",
+        enabled = false;
         dependencies = {
             -- format & linting
             {
@@ -44,15 +45,18 @@ local plugins = {
         build = function() vim.fn["mkdp#util#install"]() end
     }, {
         "ojroques/nvim-lspfuzzy",
+        enabled = disabled,
         dependencies = {"junegunn/fzf", "junegunn/fzf.vim"},
         config = function() require("lspfuzzy").setup {} end
     }, {"weilbith/nvim-code-action-menu", cmd = "CodeActionMenu"}, {
         "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+        event = {"BufNewFile", "BufReadPre"},
         lazy = false,
         config = function() require("lsp_lines").setup() end
     }, {
         "rest-nvim/rest.nvim",
         dependencies = {"nvim-lua/plenary.nvim"},
+        ft = {"javascript", "typescript", "html"},
         config = function()
             require("rest-nvim").setup {
                 -- Open request results in a horizontal split
@@ -88,14 +92,13 @@ local plugins = {
             }
         end
     }, {
-        "ahmedkhalf/project.nvim",
+        "neoclide/coc.nvim",
         lazy = false,
-        config = function()
-            require("project_nvim").setup {
-                require("telescope").load_extension "projects"
-            }
-        end
-    }
+        branch = "release",
+        -- event = {"BufNewFile", "BufReadPre"},
+    }, {
+    "hrsh7th/nvim-cmp", enabled = false
+  }
     -- {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-path"},
     -- {"hrsh7th/cmp-cmdline"}, {"hrsh7th/nvim-cmp"}, {"saadparwaiz1/cmp_luasnip"}
     -- To make a plugin not be loaded

@@ -138,11 +138,10 @@ alias grep='rg'
 eval "$(starship init zsh)"
 export PATH="$PATH:/usr/local/lib/python3.10/site-packages/"
 export PATH="$PATH:/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/"
-export PATH="$PATH:/Users/{YOUR_USER_NAME}/.cargo/bin"
-export PATH="$PATH:/Users/{YOUR_USER_NAME}/.local/share/neovim/bin"
-export PATH="$PATH:/Users/{YOUR_USER_NAME}/.nvm/versions/node/v16.19.0/bin"
+export PATH="$PATH:/Users/leonardyeung/.local/share/neovim/bin"
+export PATH="$PATH:/Users/leonardyeung/.nvm/versions/node/v16.19.0/bin"
 export PATH="$PATH:/usr/local/opt/python@3.10/libexec/bin"
-export PATH="$PATH:/Users/{YOUR_USER_NAME}/go/bin/"
+export PATH="$PATH:/Users/leonardyeung/go/bin/"
 export PATH="$PATH:/usr/local/opt/grep/libexec/gnubin"
 # export PATH="$PATH:/usr/local/opt/openjdk/bin"
 # export PATH="$PATH:~/Library/Application\ Support/Coursier/bin"
@@ -153,12 +152,14 @@ export PATH="/usr/local/opt/llvm/bin/:$PATH"
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 export PATH="$PATH:/usr/local/include"
-export PATH="$PATH:/Users/{YOUR_USER_NAME}/.composer/vendor/bin"
-export PATH="/Users/{YOUR_USER_NAME}/Library/Python/3.10/bin:$PATH"
+export PATH="$PATH:/Users/leonardyeung/.composer/vendor/bin"
+export PATH="/Users/leonardyeung/Library/Python/3.10/bin:$PATH"
 eval $(thefuck --alias)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[ -f "/Users/{YOUR_USER_NAME}/.ghcup/env" ] && source "/Users/{YOUR_USER_NAME}/.ghcup/env" # ghcup-env
+[ -f "/Users/leonardyeung/.ghcup/env" ] && source "/Users/leonardyeung/.ghcup/env" # ghcup-env
 export LSP_USE_PLISTS=true
 export PATH="/usr/local/sbin:$PATH"
+export NODE_OPTIONS='--max-old-space-size=15000'
+export PATH="$PATH:~/.cargo/bin"

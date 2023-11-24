@@ -132,9 +132,7 @@ export STARSHIP_CONFIG=~/.config/starship.toml
 export PATH="$PATH:/usr/local/bin/:~/.local/share/bin/:/usr/local/lib/:/usr/bin/"
 export PATH="$PATH:/usr/local/lib/python3.10/:/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages"
 export PATH="$PATH:~/.emacs.d/bin/"
-alias doom="~/.emacs.d/bin/doom"
 alias bash="/usr/local/Cellar/bash/5.2.15/bin/bash"
-alias grep='rg'
 eval "$(starship init zsh)"
 export PATH="$PATH:/usr/local/lib/python3.10/site-packages/"
 export PATH="$PATH:/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/"
@@ -163,3 +161,20 @@ export LSP_USE_PLISTS=true
 export PATH="/usr/local/sbin:$PATH"
 export NODE_OPTIONS='--max-old-space-size=15000'
 export PATH="$PATH:~/.cargo/bin"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/leonardyeung/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/leonardyeung/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/leonardyeung/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/leonardyeung/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="$PATH:~/.docker/bin"

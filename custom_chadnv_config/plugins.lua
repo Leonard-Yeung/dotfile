@@ -7,111 +7,141 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    enabled = false,
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end
-      }
-    },
+    -- dependencies = {
+    --   -- format & linting
+    --   {
+    --     "jose-elias-alvarez/null-ls.nvim",
+    --     config = function()
+    --       require "custom.configs.null-ls"
+    --     end,
+    --   },
+    -- },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end -- Override to setup mason-lspconfig
-  },    -- override plugin configs
-  { "williamboman/mason.nvim",         opts = overrides.mason },
-  { "nvim-treesitter/nvim-treesitter", opts = overrides.treesitter }, {
-  "nvim-tree/nvim-tree.lua",
-  opts = overrides.nvimtree,
-  config = function()
-    require("nvim-tree").setup {
-      sync_root_with_cwd = true,
-      respect_buf_cwd = true,
-      update_focused_file = { enable = true, update_root = true }
-    }
-  end
-}, -- Install a plugin
+    end, -- Override to setup mason-lspconfig
+  },
+
+  -- override plugin configs
+  {
+    "williamboman/mason.nvim",
+    opts = overrides.mason,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
+  },
+
+  -- Install a plugin
   {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
-    config = function() require("better_escape").setup() end
-  }, {
-  "iamcco/markdown-preview.nvim",
-  ft = "markdown",
-  build = function() vim.fn["mkdp#util#install"]() end
-}, {
-  "ojroques/nvim-lspfuzzy",
-  enabled = disabled,
-  dependencies = { "junegunn/fzf", "junegunn/fzf.vim" },
-  config = function() require("lspfuzzy").setup {} end
-}, { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" }, {
-  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  event = { "BufNewFile", "BufReadPre" },
-  lazy = false,
-  config = function() require("lsp_lines").setup() end
-}, {
-  "rest-nvim/rest.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  ft = { "javascript", "typescript", "html" },
-  config = function()
-    require("rest-nvim").setup {
-      -- Open request results in a horizontal split
-      result_split_horizontal = false,
-      -- Keep the http file buffer above|left when split horizontal|vertical
-      result_split_in_place = false,
-      -- Skip SSL verification, useful for unknown certificates
-      skip_ssl_verification = false,
-      -- Encode URL before making request
-      encode_url = true,
-      -- Highlight request on run
-      highlight = { enabled = true, timeout = 150 },
-      result = {
-        -- toggle showing URL, HTTP info, headers at top the of result window
-        show_url = true,
-        show_http_info = true,
-        show_headers = true,
-        -- executables or functions for formatting response body [optional]
-        -- set them to false if you want to disable them
-        formatters = {
-          json = "jq",
-          html = function(body)
-            return vim.fn
-                .system({ "tidy", "-i", "-q", "-" }, body)
-          end
-        }
-      },
-      -- Jump to request line on run
-      jump_to_request = false,
-      env_file = ".env",
-      custom_dynamic_variables = {},
-      yank_dry_run = true
-    }
-  end
-}, {
-  "neoclide/coc.nvim",
-  lazy = false,
-  branch = "release",
-  -- event = {"BufNewFile", "BufReadPre"},
-}, {
-  "hrsh7th/nvim-cmp", enabled = false
-}, {
-  'nvim-telescope/telescope.nvim',
-  tag = '0.1.1',
-  dependencies = 'nvim-lua/plenary.nvim',
-  lazy = false,
-  require('telescope').setup {}
-}
-  -- {"hrsh7th/cmp-nvim-lsp"}, {"hrsh7th/cmp-buffer"}, {"hrsh7th/cmp-path"},
-  -- {"hrsh7th/cmp-cmdline"}, {"hrsh7th/nvim-cmp"}, {"saadparwaiz1/cmp_luasnip"}
+    config = function()
+      require("better_escape").setup()
+    end,
+  },
+
+  {
+    "mhartington/formatter.nvim",
+    event = "BufEnter",
+    config = function()
+      local util = require "formatter.util"
+      require("formatter").setup {
+        -- Enable or disable logging
+        logging = true,
+        -- Set the log level
+        log_level = vim.log.levels.WARN,
+        -- All formatter configurations are opt-in
+        filetype = {
+          -- Formatter configurations for filetype "lua" go here
+          -- and will be executed in order
+          lua = {
+            -- "formatter.filetypes.lua" defines default configurations for the
+            -- "lua" filetype
+            require("formatter.filetypes.lua").stylua,
+
+            -- You can also define your own configuration
+            -- function()
+            --   -- Supports conditional formatting
+            --   if util.get_current_buffer_file_name() == "special.lua" then
+            --     return nil
+            --   end
+            --
+            --   -- Full specification of configurations is down below and in Vim help
+            --   -- files
+            --   return {
+            --     exe = "stylua",
+            --     args = {
+            --       "--search-parent-directories",
+            --       "--stdin-filepath",
+            --       util.escape_path(util.get_current_buffer_file_path()),
+            --       "--",
+            --       "-",
+            --     },
+            --     stdin = true,
+            --   }
+            -- end,
+          },
+          javascript = {
+            require("formatter.filetypes.javascript").prettier,
+          },
+          typescript = {
+            require("formatter.filetypes.typescript").prettier,
+          },
+
+          -- Use the special "*" filetype for defining formatter configurations on
+          -- any filetype
+          ["*"] = {
+            -- "formatter.filetypes.any" defines default configurations for any
+            -- filetype
+            require("formatter.filetypes.any").remove_trailing_whitespace,
+          },
+        },
+      }
+      local augroup = vim.api.nvim_create_augroup
+      local autocmd = vim.api.nvim_create_autocmd
+      augroup("__formatter__", { clear = true })
+      autocmd("BufWritePost", {
+        group = "__formatter__",
+        command = ":FormatWrite",
+      })
+    end,
+  },
+
+  {
+    "ms-jpg/coq_nvim",
+    url = "https://github.com/ms-jpq/coq_nvim.git",
+    branch = "coq",
+    event = "BufEnter",
+    dependencies = {
+      { "ms-jpq/coq.artifacts", branch = "artifacts" },
+      { "ms-jpq/coq.thirdparty", branch = "3p" },
+    },
+  },
+
+  {
+    "andweeb/presence.nvim",
+    event = "BufEnter",
+    config = function()
+      require("presence").setup()
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
   --   enabled = false
   -- },
 
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    enabled = false,
+  },
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`
   -- If you want a plugin to load on startup, add `lazy = false` to a plugin spec, for example

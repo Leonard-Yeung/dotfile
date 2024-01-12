@@ -132,6 +132,24 @@ local plugins = {
       require("presence").setup()
     end,
   },
+
+  {
+    "ahmedkhalf/project.nvim",
+    lazy = false,
+    config = function()
+      require("project_nvim").setup {}
+      require("nvim-tree").setup {
+        sync_root_with_cwd = true,
+        respect_buf_cwd = true,
+        update_focused_file = {
+          enable = true,
+          update_root = true,
+        },
+      }
+      require("telescope").load_extension "projects"
+      require("telescope").extensions.projects.projects {}
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

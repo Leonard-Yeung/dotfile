@@ -166,6 +166,9 @@ local plugins = {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     },
+    config = function()
+      require("zen-mode").setup(opts)
+    end,
   },
 
   {
@@ -237,7 +240,7 @@ local plugins = {
     "rcarriga/nvim-notify",
     lazy = false,
     config = function()
-      vim.notify = require("notify")
+      vim.notify = require "notify"
     end,
   },
 
@@ -252,6 +255,7 @@ local plugins = {
     },
     config = function()
       require("trouble").setup {
+        opts,
         vim.keymap.set("n", "<leader>xx", function()
           require("trouble").toggle()
         end),
@@ -291,7 +295,7 @@ local plugins = {
     opts = {},
     event = "BufEnter",
     config = function()
-      require("neodev").setup {}
+      require("neodev").setup(opts)
     end,
   },
 
@@ -305,7 +309,7 @@ local plugins = {
       -- refer to the configuration section below
     },
     config = function()
-      require("todo-comments").setup {}
+      require("todo-comments").setup(opts)
     end,
   },
   {

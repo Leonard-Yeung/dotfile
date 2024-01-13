@@ -147,6 +147,7 @@ local plugins = {
         },
       }
       require("telescope").load_extension "projects"
+      -- require("telescope").extensions.projects.projects {}
     end,
   },
   -- To make a plugin not be loaded
@@ -320,6 +321,16 @@ local plugins = {
       vim.g.mkdp_filetypes = { "markdown" }
     end,
     ft = { "markdown" },
+  },
+  {
+    "rmagatti/auto-session",
+    event = "BufEnter",
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+      }
+    end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",

@@ -16,7 +16,7 @@ local servers = {
   "jsonls",
   "lua_ls",
   "pyright",
-  "solidity",
+  "solidity_ls_nomicfoundation",
   "yamlls",
 }
 

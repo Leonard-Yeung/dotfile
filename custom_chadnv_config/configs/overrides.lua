@@ -16,7 +16,7 @@ M.treesitter = {
     "python",
     "solidity",
     "yaml",
-    "json"
+    "json",
   },
   indent = {
     enable = true,
@@ -47,10 +47,13 @@ M.mason = {
 
 -- git support in nvimtree
 M.nvimtree = {
+  disable_netrw = true,
   git = {
     enable = true,
   },
-
+  filters = {
+    git_ignored = false,
+  },
   renderer = {
     highlight_git = true,
     icons = {

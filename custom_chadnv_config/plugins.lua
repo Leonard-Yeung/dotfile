@@ -94,6 +94,9 @@ local plugins = {
           typescript = {
             require("formatter.filetypes.typescript").prettier,
           },
+          terraform = {
+            require("formatter.filetypes.terraform").terraformfmt,
+          },
 
           -- Use the special "*" filetype for defining formatter configurations on
           -- any filetype
@@ -127,6 +130,7 @@ local plugins = {
 
   {
     "andweeb/presence.nvim",
+    enabled = false,
     event = "BufEnter",
     config = function()
       require("presence").setup()
@@ -135,6 +139,7 @@ local plugins = {
 
   {
     "ahmedkhalf/project.nvim",
+    enabled = false,
     lazy = false,
     config = function()
       require("project_nvim").setup {}
@@ -168,7 +173,7 @@ local plugins = {
       -- refer to the configuration section below
     },
     config = function()
-      require("zen-mode").setup(opts)
+      require("zen-mode").setup {}
     end,
   },
 
@@ -296,7 +301,7 @@ local plugins = {
     opts = {},
     event = "BufEnter",
     config = function()
-      require("neodev").setup(opts)
+      require("neodev").setup {}
     end,
   },
 
@@ -310,7 +315,7 @@ local plugins = {
       -- refer to the configuration section below
     },
     config = function()
-      require("todo-comments").setup(opts)
+      require("todo-comments").setup {}
     end,
   },
   {
@@ -341,6 +346,7 @@ local plugins = {
   },
   {
     "NeogitOrg/neogit",
+    enabled = false,
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
@@ -605,7 +611,17 @@ local plugins = {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
     config = function()
-      require("lspsaga").setup {}
+      require("lspsaga").setup {
+        vim.keymap.set("n", "<leader>cK", "<cmd>Lspsaga hover_doc<CR>"),
+        vim.keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>"),
+        vim.keymap.set("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>"),
+        vim.keymap.set("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>"),
+        vim.keymap.set("n", "<leader>cc", "<cmd>Lspsaga peek_definition<CR>"),
+        vim.keymap.set("n", "<leader>cdn", "<cmd>Lspsaga diagnostic_jump_next<CR>"),
+        vim.keymap.set("n", "<leader>cdp", "<cmd>Lspsaga diagnostic_jump_prev<CR>"),
+        vim.keymap.set("n", "<leader>cf", "<cmd>Lspsaga finder<CR>"),
+        vim.keymap.set("n", "<leader>cr", "<cmd>Lspsaga rename<CR>"),
+      }
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter", -- optional

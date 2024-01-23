@@ -10,13 +10,8 @@ M.treesitter = {
     "typescript",
     "tsx",
     "c",
-    "cpp",
     "markdown",
     "markdown_inline",
-    "python",
-    "solidity",
-    "yaml",
-    "json",
   },
   indent = {
     enable = true,
@@ -47,13 +42,10 @@ M.mason = {
 
 -- git support in nvimtree
 M.nvimtree = {
-  disable_netrw = true,
   git = {
     enable = true,
   },
-  filters = {
-    git_ignored = false,
-  },
+
   renderer = {
     highlight_git = true,
     icons = {

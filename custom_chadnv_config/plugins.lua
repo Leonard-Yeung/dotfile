@@ -55,8 +55,9 @@ local plugins = {
   require(pluginPath .. ".mini"),
   require(pluginPath .. ".notify"),
   require(pluginPath .. ".oil"),
-  -- require(pluginPath .. ".telescope"),
   require(pluginPath .. ".trouble"),
+  require(pluginPath .. ".telescope"),
+  require(pluginPath .. ".diffview"),
 
   -- To make a plugin not be loaded
   -- {

@@ -1,9 +1,12 @@
+local function notifySetup()
+  vim.notify = require "notify"
+end
 return {
   "rcarriga/nvim-notify",
   lazy = false,
-  opts = {
-    function()
-      vim.notify = require "notify"
-    end,
-  },
+  config = function()
+    require("notify").setup {
+      notifySetup(),
+    }
+  end,
 }

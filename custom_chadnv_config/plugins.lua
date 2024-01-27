@@ -52,8 +52,10 @@ local plugins = {
   require(pluginPath .. ".gitsigns"),
   require(pluginPath .. ".lspsaga"),
   require(pluginPath .. ".markdown-preview"),
+  require(pluginPath .. ".mini"),
   require(pluginPath .. ".notify"),
   require(pluginPath .. ".oil"),
+  -- require(pluginPath .. ".telescope"),
   require(pluginPath .. ".trouble"),
 
   -- To make a plugin not be loaded

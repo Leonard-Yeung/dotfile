@@ -17,6 +17,7 @@ M.treesitter = {
     "solidity",
     "yaml",
     "json",
+    "terraform"
   },
   indent = {
     enable = true,
@@ -42,6 +43,9 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    "terraform-ls",
+    "eslint-lsp"
   },
 }
 

@@ -18,9 +18,15 @@ local options = {
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 100,
+    timeout_ms = 5000,
     lsp_fallback = true,
   },
+
+  -- formatters = {
+  --   prettier = {
+  --     command = "~/.config/yarn/global/node_modules/.bin/prettier",
+  --   },
+  -- },
 }
 
 require("conform").setup(options)

@@ -3,7 +3,7 @@ return {
   ---@type NvPluginSpec[]
   "echasnovski/mini.nvim",
   version = false,
-  event = "BufEnter",
+  lazy = false,
   config = function()
     require("mini.surround").setup()
     require("mini.ai").setup()

@@ -9,8 +9,8 @@ local options = {
     html = { "prettier" },
     sh = { "shfmt" },
     terraform = { "terraform_fmt" },
-    yaml = { "yamlfmt" },
-    json = { "jq" },
+    yaml = { "prettier" },
+    json = { "prettier" },
   },
 
   -- adding same formatter for multiple filetypes can look too much work for some

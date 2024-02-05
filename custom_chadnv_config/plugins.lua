@@ -59,7 +59,7 @@ local plugins = {
   require(pluginPath .. ".nvim-surround"),
   -- require(pluginPath .. ".oil"),
   require(pluginPath .. ".trouble"),
-  require(pluginPath .. ".telescope"),
+  -- require(pluginPath .. ".telescope"),
   -- require(pluginPath .. ".diffview"),
 
   -- To make a plugin not be loaded

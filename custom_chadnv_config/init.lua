@@ -13,4 +13,5 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
+vim.g.neovide_remember_window_size = true
 vim.cmd "set linebreak"

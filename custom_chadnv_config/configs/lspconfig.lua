@@ -22,6 +22,12 @@ local servers = {
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
+    on_init = function(client, _)
+      if client.server_capabilities then
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.semanticTokensProvider = false -- turn off semantic tokens
+      end
+    end,
     on_attach = on_attach,
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
   }

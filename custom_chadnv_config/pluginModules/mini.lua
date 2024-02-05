@@ -6,12 +6,12 @@ return {
   lazy = false,
   config = function()
     require("mini.surround").setup()
-    require("mini.ai").setup()
-    require("mini.files").setup()
-    require("mini.pick").setup()
+    -- require("mini.ai").setup()
+    -- require("mini.files").setup()
+    -- require("mini.pick").setup()
     require("mini.basics").setup()
-    require("mini.bracketed").setup()
+    -- require("mini.bracketed").setup()
     require("mini.extra").setup()
-    require("mini.sessions").setup()
+    -- require("mini.sessions").setup()
   end,
 }

@@ -50,14 +50,17 @@ local plugins = {
   require(pluginPath .. ".cmp"),
   require(pluginPath .. ".dashboard"),
   require(pluginPath .. ".gitsigns"),
+  require(pluginPath .. ".harpoon"),
   require(pluginPath .. ".lspsaga"),
+  require(pluginPath .. ".lsp_lines"),
   require(pluginPath .. ".markdown-preview"),
-  require(pluginPath .. ".mini"),
+  -- require(pluginPath .. ".mini"),
   require(pluginPath .. ".notify"),
-  require(pluginPath .. ".oil"),
+  require(pluginPath .. ".nvim-surround"),
+  -- require(pluginPath .. ".oil"),
   require(pluginPath .. ".trouble"),
   require(pluginPath .. ".telescope"),
-  require(pluginPath .. ".diffview"),
+  -- require(pluginPath .. ".diffview"),
 
   -- To make a plugin not be loaded
   -- {

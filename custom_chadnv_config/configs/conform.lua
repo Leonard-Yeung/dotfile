@@ -11,6 +11,7 @@ local options = {
     terraform = { "terraform_fmt" },
     yaml = { "prettier" },
     json = { "prettier" },
+    java = { "google-java-format" },
   },
 
   -- adding same formatter for multiple filetypes can look too much work for some

@@ -12,6 +12,7 @@ local servers = {
   "clangd",
   "cmake",
   "dockerls",
+  "jdtls",
   "jsonls",
   "lua_ls",
   "pyright",

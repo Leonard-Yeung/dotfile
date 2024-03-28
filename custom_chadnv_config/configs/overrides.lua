@@ -17,7 +17,7 @@ M.treesitter = {
     "solidity",
     "yaml",
     "json",
-    "terraform"
+    "terraform",
   },
   indent = {
     enable = true,
@@ -45,13 +45,12 @@ M.mason = {
     "clang-format",
 
     "terraform-ls",
-    "eslint-lsp"
+    "eslint-lsp",
   },
 }
 
 -- git support in nvimtree
 M.nvimtree = {
-  disable_netrw = true,
   git = {
     enable = true,
   },

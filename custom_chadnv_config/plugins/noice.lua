@@ -3,6 +3,15 @@ return {
   event = "VeryLazy",
   opts = {
     lsp = {
+      -- Disable notification of hover and signature overrides from Lspsaga
+      hover = {
+        enabled = false,
+        silent = true,
+      },
+      signature = {
+        enabled = false,
+        silent = true,
+      },
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
       override = {
         ["vim.lsp.util.convert_input_to_markdown_lines"] = true,

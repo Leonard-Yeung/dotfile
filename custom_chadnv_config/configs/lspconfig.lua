@@ -1,38 +1,39 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+-- EXAMPLE
+local on_attach = require("nvchad.configs.lspconfig").on_attach
+local on_init = require("nvchad.configs.lspconfig").on_init
+local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require "lspconfig"
-
+local lspconfig = require("lspconfig")
 -- if you just want default config for the servers then put them in a table
 local servers = {
-  "html",
-  "cssls",
-  "eslint",
-  "tsserver",
-  "clangd",
-  "cmake",
-  "dockerls",
-  "jdtls",
-  "jsonls",
-  "lua_ls",
-  "pyright",
-  "solidity_ls_nomicfoundation",
-  "yamlls",
-  "terraformls",
+	"html",
+	"cssls",
+	"eslint",
+	"tsserver",
+	"clangd",
+	"cmake",
+	"dockerls",
+	"jdtls",
+	"jsonls",
+	"lua_ls",
+	"pyright",
+	"solidity_ls_nomicfoundation",
+	"yamlls",
+	"terraformls",
 }
 
+-- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_init = function(client, _)
-      if client.server_capabilities then
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.semanticTokensProvider = false -- turn off semantic tokens
-      end
-    end,
-    on_attach = on_attach,
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-  }
+	lspconfig[lsp].setup({
+		on_attach = on_attach,
+		on_init = on_init,
+		capabilities = capabilities,
+	})
 end
 
---
--- lspconfig.pyright.setup { blabla}
+-- typescript
+lspconfig.tsserver.setup({
+	on_attach = on_attach,
+	on_init = on_init,
+	capabilities = capabilities,
+})

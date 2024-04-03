@@ -1,3 +1,4 @@
+local slow_format_filetypes = {}
 local options = {
   lsp_fallback = true,
 
@@ -17,12 +18,24 @@ local options = {
   -- adding same formatter for multiple filetypes can look too much work for some
   -- instead of the above code you could just use a loop! the config is just a table after all!
 
-  format_on_save = {
-    -- These options will be passed to conform.format()
-    timeout_ms = 5000,
-    lsp_fallback = true,
-  },
+  format_on_save = function(bufnr)
+    if slow_format_filetypes[vim.bo[bufnr].filetype] then
+      return
+    end
+    local function on_format(err)
+      if err and err:match "timeout$" then
+        slow_format_filetypes[vim.bo[bufnr].filetype] = true
+      end
+    end
 
+    return { timeout_ms = 500, lsp_fallback = true }, on_format
+  end,
+  format_after_save = function(bufnr)
+    if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+      return
+    end
+    return { lsp_fallback = true }
+  end,
   -- formatters = {
   --   prettier = {
   --     command = "~/.config/yarn/global/node_modules/.bin/prettier",

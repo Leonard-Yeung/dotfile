@@ -4,6 +4,9 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     config = function()
       require "configs.conform"
+      vim.keymap.set("n", "<leader>fm", function()
+        require("conform").format { async = true, lsp_fallback = true }
+      end, { desc = "Format with Conform" })
     end,
   },
 

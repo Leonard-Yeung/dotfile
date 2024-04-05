@@ -9,6 +9,8 @@ return {
     vim.keymap.set("n", "<leader>ln", function()
       vim.diagnostic.config { virtual_lines = false }
     end, { desc = "Disable lsp_lines" })
+  end,
+  config = function()
     vim.diagnostic.config { virtual_lines = false }
   end,
 }

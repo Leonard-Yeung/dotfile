@@ -40,7 +40,6 @@ zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
 # completion must be sourced after all modules that add completion definitions.
 zmodule completion
-zmodule exa
 zmodule fzf
 #
 # Modules that must be initialized last
@@ -66,7 +65,6 @@ zmodule https://github.com/akash329d/zsh-alias-finder.git
 zmodule https://github.com/zshzoo/cd-ls.git
 zmodule https://github.com/zuxfoucault/colored-man-pages_mod.git
 zmodule https://github.com/zpm-zsh/colorize.git
-zmodule https://github.com/birdhackor/zsh-exa-ls-plugin.git
 zmodule https://github.com/lukechilds/zsh-nvm.git
 zmodule https://github.com/mdumitru/git-aliases.git
 zmodule https://github.com/nekofar/zsh-git-lfs.git
@@ -77,5 +75,6 @@ zmodule https://github.com/lukechilds/zsh-better-npm-completion.git
 zmodule https://github.com/g-plane/zsh-yarn-autocompletions.git
 zmodule https://github.com/zsh-users/zsh-apple-touchbar
 zmodule https://github.com/bigH/git-fuzzy
+zmodule https://github.com/MichaelAquilina/zsh-you-should-use
 # }}} End configuration added by Zim install
 

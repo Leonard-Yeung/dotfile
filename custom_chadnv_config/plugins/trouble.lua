@@ -8,6 +8,6 @@ return {
   },
   event = "BufEnter",
   init = function()
-    vim.keymap.set("n", "<leader>xx", ":TroubleToggle <cr>", { desc = "Toggle Trouble" })
+    vim.keymap.set("n", "<leader>tr", ":TroubleToggle <cr>", { desc = "Toggle Trouble" })
   end,
 }

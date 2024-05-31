@@ -4,21 +4,21 @@ return {
     -- event = 'BufWritePre', -- uncomment for format on save
     config = function()
       require "configs.conform"
-      vim.keymap.set("n", "<leader>fm", function()
-        require("conform").format { async = true, lsp_fallback = true }
-      end, { desc = "Format with Conform" })
     end,
   },
 
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+    },
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
   },
-  --
+
   {
     "williamboman/mason.nvim",
     opts = {
@@ -29,12 +29,9 @@ return {
         "css-lsp",
         "prettier",
         "eslint-lsp",
-        "typescript-language-server",
-        "jdtls",
-        "nomicfoundation-solidity-language-server",
-        "clangd",
-        "clang-format",
         "terraform-ls",
+        "json-lsp",
+        "yaml-language-server",
       },
     },
   },
@@ -45,21 +42,16 @@ return {
       ensure_installed = {
         "vim",
         "lua",
+        "vimdoc",
         "html",
         "css",
         "javascript",
         "typescript",
-        "tsx",
-        "c",
-        "cpp",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "solidity",
-        "yaml",
-        "json",
         "terraform",
+        "json",
+        "yaml",
       },
     },
   },
+  { require "configs.cmp" },
 }

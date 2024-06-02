@@ -54,4 +54,8 @@ return {
     },
   },
   { require "configs.cmp" },
+  { require "configs.noice" },
+  { require "configs.gitsigns" },
+  { require "configs.lspsaga" },
+  { require "configs.trouble" },
 }

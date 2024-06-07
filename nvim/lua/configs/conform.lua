@@ -5,6 +5,10 @@ local options = {
     html = { "prettier" },
     javascript = { "prettier" },
     typescript = { "prettier" },
+    yaml = { "prettier" },
+    json = { "prettier" },
+    ruby = { "standardrb" },
+    sh = { "shfmt" },
   },
 
   format_on_save = {

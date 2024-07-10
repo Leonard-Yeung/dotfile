@@ -1,0 +1,6 @@
+[user]
+	email = 94115482+Leonard53@users.noreply.github.com
+	name = Leoanrd Yeung
+	signingKey = CA9E90C9D7661F1F
+[commit]
+	gpgsign = true

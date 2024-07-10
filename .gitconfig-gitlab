@@ -1,0 +1,6 @@
+[user]
+	email = leonard_yeung@tuta.io
+	name = Leoanrd Yeung
+	signingKey = 266A6276747CFCA5
+[commit]
+	gpgsign = true

@@ -11,6 +11,7 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "amarakon/nvim-cmp-buffer-lines",
       "windwp/nvim-autopairs",
+      "David-Kunz/cmp-npm",
     },
     event = { "InsertEnter" },
     config = function()
@@ -28,7 +29,7 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         mapping = {
-          ["<CR>"] = cmp.mapping(function(fallback)
+          ["<C-c>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               if luasnip.expandable() then
                 luasnip.expand()
@@ -42,7 +43,7 @@ return {
             end
           end),
 
-          ["<Tab>"] = cmp.mapping(function(fallback)
+          ["<C-n>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
             elseif luasnip.locally_jumpable(1) then
@@ -52,7 +53,7 @@ return {
             end
           end, { "i", "s" }),
 
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
+          ["<C-p>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             elseif luasnip.locally_jumpable(-1) then
@@ -65,20 +66,7 @@ return {
         sources = {
           { name = "nvim_lsp" },
           { name = "luasnip" },
-          { name = "buffer" },
-          -- { name = "path" },
-          { name = "fuzzy_path" },
-          {
-            name = "spell",
-            option = {
-              keep_all_entries = false,
-              enable_in_context = function()
-                return true
-              end,
-              preselect_correct_word = true,
-            },
-          },
-          { name = "buffer-lines" },
+          { name = "path" },
           {
             name = "bufname",
             option = {
@@ -97,7 +85,14 @@ return {
                 return { filename:match "[^.]*" }
               end,
             },
+            { name = "treesitter" },
+            { name = "nvim_lua" },
+            { name = "npm", keyword_length = 4 },
             { name = "nvim_lsp_signature_help" },
+            { name = "nvim_lsp_document_symbol" },
+          },
+          {
+            { name = "buffer" },
           },
         },
       }
@@ -113,8 +108,7 @@ return {
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
-          -- { name = "path" },
-          { name = "fuzzy_path" },
+          { name = "path" },
           { name = "cmdline" },
         },
         matching = { disallow_symbol_nonprefix_matching = false },
@@ -125,4 +119,12 @@ return {
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   { "tzachar/cmp-fuzzy-path", dependencies = { "hrsh7th/nvim-cmp", "tzachar/fuzzy.nvim" } },
+  {
+    "David-Kunz/cmp-npm",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    ft = "json",
+    config = function()
+      require("cmp-npm").setup {}
+    end,
+  },
 }

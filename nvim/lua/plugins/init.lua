@@ -69,4 +69,6 @@ return {
   { require "plugins.lspsaga" },
   { require "plugins.trouble" },
   { require "plugins.autopairs" },
+  { require "plugins.md-preview" },
+  { require "plugins.lsp-lines" },
 }

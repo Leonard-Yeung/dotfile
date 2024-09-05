@@ -5,12 +5,16 @@
 local M = {}
 
 M.ui = {
-	theme = "tokyonight",
+	theme = "monekai",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
 	-- },
+  statusline = {
+    theme = "minimal",
+    separator_style = "round"
+  }
 }
 
 return M

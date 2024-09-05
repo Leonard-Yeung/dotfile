@@ -6,15 +6,15 @@ vim.opt.termguicolors = true
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_remember_window_size = true
 vim.cmd "set linebreak"
--- vim.opt.spell = true
--- vim.opt.spelllang = { "en_us" }
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us" }
 vim.opt.relativenumber = true
 
 if vim.fn.has "mac" then
-  vim.o.guifont = "Hack Nerd Font Mono:h12"
+  vim.o.guifont = "Hack Nerd Font Mono:h11"
   vim.g.neovide_refresh_rate = 60
 else
-  vim.o.guifont = "Hack Nerd Font Mono:h14"
+  vim.o.guifont = "Hack Nerd Font Mono:h13"
   vim.g.neovide_refresh_rate = 144
 end
 -- local o = vim.o

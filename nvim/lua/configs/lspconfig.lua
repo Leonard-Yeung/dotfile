@@ -16,6 +16,7 @@ local servers = {
   "ansiblels",
   "bashls",
   "standardrb",
+  "dockerls"
 }
 
 for _, lsp in ipairs(servers) do

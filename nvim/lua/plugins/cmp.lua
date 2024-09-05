@@ -13,11 +13,12 @@ return {
       "windwp/nvim-autopairs",
       "David-Kunz/cmp-npm",
     },
-    event = { "InsertEnter" },
+    event = { "LspAttach" },
     config = function()
       local cmp = require "cmp"
       local luasnip = require "luasnip"
-      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      -- local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -64,57 +65,59 @@ return {
           end, { "i", "s" }),
         },
         sources = {
-          { name = "nvim_lsp" },
           { name = "luasnip" },
+          {
+            name = "buffer",
+            option = {
+              get_bufnrs = function()
+                return vim.api.nvim_list_bufs()
+              end,
+              keyword_length = 1,
+            },
+          },
+          { name = "nvim_lsp" },
           { name = "path" },
           {
             name = "bufname",
             option = {
-              -- use only current buffer for filename exractions
               current_buf_only = false,
-
-              -- allows to configure what buffers to extract a filename from
               bufs = function()
                 return vim.api.nvim_list_bufs()
               end,
-
-              -- configure which entries you want to include in your completion:
-              -- - you have to return a table of entries
-              -- - empty string means skip that particular entry
-              extractor = function(filename, full_path)
-                return { filename:match "[^.]*" }
-              end,
             },
-            { name = "treesitter" },
-            { name = "nvim_lua" },
-            { name = "npm", keyword_length = 4 },
-            { name = "nvim_lsp_signature_help" },
-            { name = "nvim_lsp_document_symbol" },
           },
+          { name = "nvim_lsp_signature_help" },
           {
-            { name = "buffer" },
+            name = "spell",
+            option = {
+              keep_all_entries = false,
+              enable_in_context = function()
+                return true
+              end,
+              preselect_correct_word = true,
+            },
           },
         },
       }
       -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = {
+        sources = cmp.config.sources {
           { name = "buffer" },
+          { name = "nvim_lsp_document_symbol" },
         },
       })
 
       -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
-        sources = {
+        sources = cmp.config.sources {
           { name = "path" },
           { name = "cmdline" },
         },
         matching = { disallow_symbol_nonprefix_matching = false },
       })
-      require "configs.lspconfig"
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+      -- require "configs.lspconfig"
     end,
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },

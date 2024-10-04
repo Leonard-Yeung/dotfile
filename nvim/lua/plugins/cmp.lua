@@ -9,9 +9,9 @@ return {
       "hrsh7th/nvim-cmp",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
-      "amarakon/nvim-cmp-buffer-lines",
+      -- "amarakon/nvim-cmp-buffer-lines",
       "windwp/nvim-autopairs",
-      "David-Kunz/cmp-npm",
+      -- "David-Kunz/cmp-npm",
     },
     event = { "LspAttach" },
     config = function()
@@ -86,17 +86,17 @@ return {
               end,
             },
           },
-          { name = "nvim_lsp_signature_help" },
-          {
-            name = "spell",
-            option = {
-              keep_all_entries = false,
-              enable_in_context = function()
-                return true
-              end,
-              preselect_correct_word = true,
-            },
-          },
+          -- { name = "nvim_lsp_signature_help" },
+          -- {
+          --   name = "spell",
+          --   option = {
+          --     keep_all_entries = false,
+          --     enable_in_context = function()
+          --       return true
+          --     end,
+          --     preselect_correct_word = true,
+          --   },
+          -- },
         },
       }
       -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -104,7 +104,7 @@ return {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources {
           { name = "buffer" },
-          { name = "nvim_lsp_document_symbol" },
+          -- { name = "nvim_lsp_document_symbol" },
         },
       })
 
@@ -121,13 +121,13 @@ return {
     end,
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  { "tzachar/cmp-fuzzy-path", dependencies = { "hrsh7th/nvim-cmp", "tzachar/fuzzy.nvim" } },
-  {
-    "David-Kunz/cmp-npm",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    ft = "json",
-    config = function()
-      require("cmp-npm").setup {}
-    end,
-  },
+  -- { "tzachar/cmp-fuzzy-path", dependencies = { "hrsh7th/nvim-cmp", "tzachar/fuzzy.nvim" } },
+  -- {
+  --   "David-Kunz/cmp-npm",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   ft = "json",
+  --   config = function()
+  --     require("cmp-npm").setup {}
+  --   end,
+  -- },
 }

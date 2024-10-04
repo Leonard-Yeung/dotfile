@@ -6,8 +6,8 @@ vim.opt.termguicolors = true
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_remember_window_size = true
 vim.cmd "set linebreak"
-vim.opt.spell = true
-vim.opt.spelllang = { "en_us" }
+vim.opt.spell = false
+-- vim.opt.spelllang = { "en_us" }
 vim.opt.relativenumber = true
 
 if vim.fn.has "mac" then

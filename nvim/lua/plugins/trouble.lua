@@ -2,7 +2,7 @@ return {
   "folke/trouble.nvim",
   opts = {},
   cmd = "Trouble",
-  event = "VeryLazy",
+  event = "LspAttach",
   keys = {
     {
       "<leader>tr",

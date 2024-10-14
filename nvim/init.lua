@@ -204,6 +204,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
+
+local o = vim.o
+
+o.expandtab = true
+o.smartindent = true
+o.tabstop = 2
+o.shiftwidth = 2
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -638,7 +649,6 @@ require('lazy').setup({
         docker_compose_language_service = {},
         dockerls = {},
         eslint = {},
-        gitlab_ci_ls = {},
         html = {},
         jsonls = {},
         nginx_language_server = {},
@@ -666,7 +676,6 @@ require('lazy').setup({
         'bashls',
         'cssls',
         'eslint',
-        'gitlab_ci_ls',
         'html',
         'jsonls',
         'nginx-language-server',
@@ -861,7 +870,7 @@ require('lazy').setup({
                 local largeBufsFiltered = {}
                 for i, buf in ipairs(bufs) do
                   local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
-                  if byte_size < 10 * 1024 * 1024 then
+                  if byte_size < 30 * 1024 * 1024 then
                     table.insert(largeBufsFiltered, buf)
                   end
                 end
@@ -1001,7 +1010,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

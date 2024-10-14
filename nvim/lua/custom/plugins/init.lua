@@ -2,4 +2,36 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+return {
+  {
+    'nvim-tree/nvim-tree.lua',
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-tree').setup {
+        sort = {
+          sorter = 'case_sensitive',
+        },
+        view = {
+          width = 30,
+        },
+        renderer = {
+          group_empty = true,
+        },
+        filters = {
+          dotfiles = true,
+        },
+        vim.keymap.set('n', '<leader>tt', '<cmd>NvimTreeToggle<cr>', { desc = '[T]oggle nvim-[T]ree' }),
+        on_attach = function(bufnr)
+          local api = require 'nvim-tree.api'
+          api.config.mappings.default_on_attach(bufnr)
+        end,
+      }
+    end,
+  },
+  {
+    'pmizio/typescript-tools.nvim',
+    ft = { 'typescript', 'typescriptreact' },
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
+}

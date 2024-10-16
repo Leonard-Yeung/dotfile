@@ -7,14 +7,19 @@ local options = {
     typescript = { "prettier" },
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
-    yaml = { "prettier" },
     json = { "prettier" },
-    ruby = { "standardrb" },
-    sh = { "shfmt" },
+    yaml = { "prettier" },
+    dockerfile = { "prettier" },
   },
+
   format_after_save = {
-    lsp_format = "fallback",
+    async = true,
+    lsp_fallback = true,
+  },
+  default_format_opts = {
+    async = true,
+    lsp_fallback = true,
   },
 }
 
-require("conform").setup(options)
+return options

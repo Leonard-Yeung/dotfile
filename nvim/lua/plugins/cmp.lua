@@ -6,7 +6,7 @@ return {
   { "hrsh7th/cmp-nvim-lsp" },
   { "L3MON4D3/LuaSnip" },
   { "saadparwaiz1/cmp_luasnip" },
-  { "uga-rosa/cmp-dictionary" },
+  -- { "uga-rosa/cmp-dictionary" },
   { url = "https://codeberg.org/FelipeLema/cmp-async-path" },
   {
     "hrsh7th/nvim-cmp",
@@ -19,7 +19,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
-      "uga-rosa/cmp-dictionary",
+      -- "uga-rosa/cmp-dictionary",
       "FelipeLema/cmp-async-path",
     },
     config = function()
@@ -43,10 +43,10 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "async_path" },
-          {
-            name = "dictionary",
-            keyword_length = 2,
-          },
+          -- {
+          --   name = "dictionary",
+          --   keyword_length = 2,
+          -- },
         }, {
           {
             name = "buffer",
@@ -73,10 +73,10 @@ return {
         }),
         matching = { disallow_symbol_nonprefix_matching = false },
       })
-      require("cmp_dictionary").setup {
-        paths = { "/usr/share/dict/words" },
-        exact_length = 2,
-      }
+      -- require("cmp_dictionary").setup {
+      --   paths = { "/usr/share/dict/words" },
+      --   exact_length = 2,
+      -- }
     end,
   },
 }

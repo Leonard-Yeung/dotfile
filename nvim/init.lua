@@ -31,6 +31,7 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"
+require("avante_lib").load()
 
 vim.schedule(function()
   require "mappings"

@@ -37,3 +37,4 @@ o.tabstop = 2
 o.shiftwidth = 2
 opt.guifont = "Hack Nerd Font:h12.5"
 opt.wrap = true
+opt.laststatus = 3

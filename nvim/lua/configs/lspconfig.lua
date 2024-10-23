@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls" }
+local servers = { "ansiblels", "html", "cssls", "eslint", "jsonls", "terraformls", "solc", "yamlls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 local cmpCapabilities = require("cmp_nvim_lsp").default_capabilities()
 

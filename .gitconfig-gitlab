@@ -1,6 +1,6 @@
 [user]
-	email = leonard_yeung@tuta.io
-	name = Leoanrd Yeung
-	signingKey = 266A6276747CFCA5
+	email = leonardyeung@digigear.io
+	name = Leonard Yeung
+	signingKey = REDACTED
 [commit]
 	gpgsign = true

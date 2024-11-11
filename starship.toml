@@ -1,8 +1,13 @@
-command_timeout = 100000000000
+command_timeout = 10000
+
 [git_branch]
 always_show_remote = true
+disabled = false
 
 [git_metrics] 
+disabled = false
+
+[git_status]
 disabled = false
 
 [directory]

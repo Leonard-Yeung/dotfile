@@ -19,3 +19,20 @@
   path = ~/.gitconfig-github
 [includeif "hasconfig:remote.*.url:git@gitlab.com:*/**"]
   path = ~/.gitconfig-gitlab
+[maintenance]
+	repo = /Users/leonardyeung/Documents/asl-threat-information-and-threat-hunting-system
+[gitbutler]
+	aiModelProvider = ollama
+	gitbutlerCommitter = 0
+	aiOllamaEndpoint = https://huggingface.co/chat/models/meta-llama/Meta-Llama-3.1-405B-Instruct-FP8
+
+[http]
+	postBuffer = 624288000
+[lfs]
+	concurrenttransfers = 10
+	activitytimeout = 3600
+	dialtimeout = 3600
+	keepalive = 3600
+	tlstimeout = 3600
+[init]
+	defaultBranch = main

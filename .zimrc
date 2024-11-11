@@ -29,8 +29,7 @@ zmodule duration-info
 zmodule git-info
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 zmodule asciiship
-zmodule homebrew
-zmodule pacman
+
 #
 # Completion
 #
@@ -40,7 +39,7 @@ zmodule zsh-users/zsh-completions --fpath src
 # Enables and configures smart and extensive tab completion.
 # completion must be sourced after all modules that add completion definitions.
 zmodule completion
-zmodule fzf
+
 #
 # Modules that must be initialized last
 #
@@ -53,28 +52,7 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 # Fish-like autosuggestions for Zsh.
 zmodule zsh-users/zsh-autosuggestions
-
-zmodule asciiship
-zmodule zsh-users/zsh-completions --fpath src
-zmodule completion
-zmodule zsh-users/zsh-syntax-highlighting
-zmodule zsh-users/zsh-autosuggestions
-#zmodule romkatv/powerlevel10k --use degit
-zmodule https://github.com/akash329d/zsh-alias-finder.git
-#zmodule https://github.com/xylous/alias-zsh.git
-zmodule https://github.com/zshzoo/cd-ls.git
-zmodule https://github.com/zuxfoucault/colored-man-pages_mod.git
-zmodule https://github.com/zpm-zsh/colorize.git
-zmodule https://github.com/lukechilds/zsh-nvm.git
-zmodule https://github.com/mdumitru/git-aliases.git
-zmodule https://github.com/nekofar/zsh-git-lfs.git
-zmodule https://github.com/changyuheng/zsh-interactive-cd.git
-zmodule https://github.com/paulmelnikow/zsh-startup-timer.git
-zmodule https://github.com/laggardkernel/zsh-thefuck.git
-zmodule https://github.com/lukechilds/zsh-better-npm-completion.git
-zmodule https://github.com/g-plane/zsh-yarn-autocompletions.git
-zmodule https://github.com/zsh-users/zsh-apple-touchbar
-zmodule https://github.com/bigH/git-fuzzy
-zmodule https://github.com/MichaelAquilina/zsh-you-should-use
 # }}} End configuration added by Zim install
+# zmodule jeffreytse/zsh-vi-mode
 
+zmodule mdumitru/git-aliases

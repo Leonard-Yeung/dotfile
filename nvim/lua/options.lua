@@ -27,7 +27,7 @@ opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.inccommand = "split"
 opt.cursorline = true
-opt.scrolloff = 25
+opt.scrolloff = 30
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 opt.termguicolors = true
@@ -38,3 +38,11 @@ o.shiftwidth = 2
 opt.guifont = "Hack Nerd Font:h12.5"
 opt.wrap = true
 opt.laststatus = 3
+
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true
+})

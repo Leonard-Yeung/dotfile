@@ -150,3 +150,5 @@ alias cat="bat"
 
 eval $(keychain --agents ssh --eval --noask --nogui --quiet GitHub GitLab ubuntu openwrt)
 export GPG_TTY=$(tty)
+gpg-connect-agent --quiet updatestartuptty /bye >/dev/null
+gpg-connect-agent --quiet reloadagent /bye

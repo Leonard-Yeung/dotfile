@@ -1,17 +1,17 @@
 [merge]
-	conflictstyle = zdiff3
+  conflictstyle = zdiff3
 [push]
-	autoSetupRemote = true
+  autoSetupRemote = true
 [rerere]
-	enabled = true
+  enabled = true
 [core]
-	pager = delta
+  pager = delta
 [interactive]
   diffFilter = delta --color-only
 [delta]
   navigate = true
 [diff]
-	algorithm = histogram
+  algorithm = histogram
   colorMoved = default
 [gpg]
   program = gpg
@@ -19,20 +19,13 @@
   path = ~/.gitconfig-github
 [includeif "hasconfig:remote.*.url:git@gitlab.com:*/**"]
   path = ~/.gitconfig-gitlab
-[maintenance]
-	repo = /Users/leonardyeung/Documents/asl-threat-information-and-threat-hunting-system
-[gitbutler]
-	aiModelProvider = ollama
-	gitbutlerCommitter = 0
-	aiOllamaEndpoint = https://huggingface.co/chat/models/meta-llama/Meta-Llama-3.1-405B-Instruct-FP8
-
 [http]
-	postBuffer = 624288000
+  postBuffer = 624288000
 [lfs]
-	concurrenttransfers = 10
-	activitytimeout = 3600
-	dialtimeout = 3600
-	keepalive = 3600
-	tlstimeout = 3600
+  concurrenttransfers = 10
+  activitytimeout = 3600
+  dialtimeout = 3600
+  keepalive = 3600
+  tlstimeout = 3600
 [init]
-	defaultBranch = main
+  defaultBranch = main

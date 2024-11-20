@@ -1,0 +1,9 @@
+Host *
+  IgnoreUnknown UseKeychain
+  UseKeychain yes
+  PreferredAuthentications publickey
+  AddKeysToAgent yes
+Host gitlab.com
+  IdentityFile ~/.ssh/GitLab
+Host github.com
+  IdentityFile ~/.ssh/GitHub

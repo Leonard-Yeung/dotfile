@@ -4,8 +4,8 @@ return {
   version = "*",
   opts = {
     ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-    provider = "claudeSonnet", -- Recommend using Claude
-    auto_suggestions_provider = "claudeHaiku",
+    provider = "sonnet", -- Recommend using Claude
+    auto_suggestions_provider = "gemini_flash",
     ---@alias Tokenizer "tiktoken" | "hf"
     tokenizer = "tiktoken",
     system_prompt = [[
@@ -17,87 +17,26 @@ return {
     openai = {
       endpoint = "https://api.openai.com/v1",
       model = "gpt-4o-mini",
+      api_key_name = "OPENAPI_KEY",
       timeout = 5000, -- Timeout in milliseconds
       temperature = 0,
       max_tokens = 10000,
-      ["local"] = false,
-    },
-    claude = {
-      endpoint = "0.0.0.0",
-      model = "claude-3-5-sonnet-20241022",
-      temperature = 0,
-      max_tokens = 4096,
     },
     vendors = {
-      ---@type AvanteProvider
-      ["claudeHaiku"] = { -- Cheaper model
-        endpoint = "https://openrouter.ai/api/v1/chat/completions",
-        model = "anthropic/claude-3-5-haiku",
-        api_key_name = "OPENROUTER_API_KEY",
+      sonnet = {
+        __inherited_from = "openai",
+        api_key_name = "SONNET_KEY",
+        endpoint = "https://openrouter.ai/api/v1",
+        model = "anthropic/claude-3.5-sonnet:beta",
         timeout = 5000, -- Timeout in milliseconds
         temperature = 0,
-        max_tokens = 8192,
-        ---@type fun(opts: AvanteProvider, code_opts: AvantePromptOptions): AvanteCurlOutput
-        parse_curl_args = function(opts, code_opts)
-          return {
-            url = opts.endpoint,
-            headers = {
-              ["Authorization"] = "Bearer " .. os.getenv(opts.api_key_name),
-              ["Content-Type"] = "application/json",
-              ["Accept"] = "application/json",
-            },
-            body = {
-              model = opts.model,
-              messages = { -- you can make your own message, but this is very advanced
-                { role = "system", content = code_opts.system_prompt },
-                { role = "user", content = require("avante.providers.claude").get_user_message(code_opts) },
-              },
-              temperature = opts.temperature,
-              max_tokens = opts.max_tokens,
-              stream = true, -- this will be set by default.
-            },
-          }
-        end,
-        ---@type fun(data_stream: string, event_state: string, opts: ResponseParser): nil
-        parse_response_data = function(data_stream, event_state, opts)
-          require("avante.providers").openai.parse_response(data_stream, event_state, opts)
-        end,
-        ["local"] = false,
+        max_tokens = 5000,
       },
-      ---@type AvanteProvider
-      ["claudeSonnet"] = {
-        endpoint = "https://openrouter.ai/api/v1/chat/completions",
-        model = "anthropic/claude-3-5-sonnet",
-        api_key_name = "OPENROUTER_API_KEY",
-        timeout = 5000, -- Timeout in milliseconds
-        temperature = 0,
-        max_tokens = 6400,
-        ---@type fun(opts: AvanteProvider, code_opts: AvantePromptOptions): AvanteCurlOutput
-        parse_curl_args = function(opts, code_opts)
-          return {
-            url = opts.endpoint,
-            headers = {
-              ["Authorization"] = "Bearer " .. os.getenv(opts.api_key_name),
-              ["Content-Type"] = "application/json",
-              ["Accept"] = "application/json",
-            },
-            body = {
-              model = opts.model,
-              messages = { -- you can make your own message, but this is very advanced
-                { role = "system", content = code_opts.system_prompt },
-                { role = "user", content = require("avante.providers.claude").get_user_message(code_opts) },
-              },
-              temperature = opts.temperature,
-              max_tokens = opts.max_tokens,
-              stream = true, -- this will be set by default.
-            },
-          }
-        end,
-        ---@type fun(data_stream: string, event_state: string, opts: ResponseParser): nil
-        parse_response_data = function(data_stream, event_state, opts)
-          require("avante.providers").openai.parse_response(data_stream, event_state, opts)
-        end,
-        ["local"] = false,
+      gemini_flash = {
+        __inherited_from = "openai",
+        api_key_name = "SONNET_KEY",
+        endpoint = "https://openrouter.ai/api/v1",
+        model = "google/gemini-flash-1.5"
       },
     },
     behaviour = {

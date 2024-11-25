@@ -130,25 +130,10 @@ unset key
 
 eval "$(starship init zsh)"
 
-export PATH="$PATH:/usr/bin/"
-export PATH="$PATH:/usr/share/"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/lib/pypy3.10/site-packages/"
-export PATH="/usr/local/bin/:$PATH"
-export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
-export PATH="$PATH:$HOME/Applications"
-source $HOME/.venv/bin/activate
-
-export TERM="screen-256color"
-
-export VISUAL=vim
-export EDITOR=vim
-
 alias ls="eza"
 alias exa="eza"
 alias cat="bat"
 
 eval $(keychain --agents ssh --eval --noask --nogui --quiet GitHub GitLab ubuntu openwrt)
-export GPG_TTY=$(tty)
 gpg-connect-agent --quiet updatestartuptty /bye >/dev/null
 gpg-connect-agent --quiet reloadagent /bye

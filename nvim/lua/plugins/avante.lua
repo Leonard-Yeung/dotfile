@@ -36,7 +36,9 @@ return {
         __inherited_from = "openai",
         api_key_name = "SONNET_KEY",
         endpoint = "https://openrouter.ai/api/v1",
-        model = "google/gemini-flash-1.5"
+        model = "google/gemini-flash-1.5",
+        timeout = 3000, -- Timeout in milliseconds
+        temperature = 0,
       },
     },
     behaviour = {
@@ -45,6 +47,7 @@ return {
       auto_set_keymaps = true,
       auto_apply_diff_after_generation = false,
       support_paste_from_clipboard = false,
+      minimize_diff = true,
     },
     mappings = {
       --- @class AvanteConflictMappings

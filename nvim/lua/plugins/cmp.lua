@@ -43,6 +43,7 @@ return {
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "async_path" },
+          { name = "nvim_lsp_signature_help" },
           -- {
           --   name = "dictionary",
           --   keyword_length = 2,
@@ -61,6 +62,7 @@ return {
       cmp.setup.cmdline({ "/", "?" }, {
         mapping = cmp.mapping.preset.cmdline(),
         sources = {
+          { name = "nvim_lsp_document_symbol" },
           { name = "buffer" },
         },
       })

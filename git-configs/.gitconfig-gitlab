@@ -1,6 +1,6 @@
 [user]
 	email = leonardyeung@digigear.io
 	name = Leonard Yeung
-	signingKey = REDACTED
+	signingKey = 266A6276747CFCA5
 [commit]
 	gpgsign = true

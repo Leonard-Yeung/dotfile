@@ -1,15 +1,21 @@
 export PATH="$PATH:/usr/bin/"
-export PATH="$PATH:/usr/bin/"
 export PATH="$PATH:/usr/share/"
+export PATH="$PATH:/usr/local/bin/"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.local/lib/pypy3.10/site-packages/"
-export PATH="/usr/local/bin/:$PATH"
-export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
-export PATH="$PATH:$HOME/Applications"
 source $HOME/.venv/bin/activate
 export GPG_TTY=$(tty)
 
 export TERM="screen-256color"
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
+
+# fnm
+FNM_PATH="/home/leonard0503/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/leonard0503/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# Neovim ENV Key for Avante.nvim plugin
 export SONNET_KEY=

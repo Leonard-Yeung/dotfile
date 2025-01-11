@@ -128,12 +128,22 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-eval "$(starship init zsh)"
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd extendedglob notify
+unsetopt beep
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '$HOME/.zshrc'
+
+autoload -Uz compinit
+# End of lines added by compinstall
+
+eval $(keychain --eval --quiet --noask id_ed25519 REDACTED_SSH_KEYFILE)
+eval "$(fnm completions --shell zsh)"
 
 alias ls="eza"
 alias exa="eza"
 alias cat="bat"
-
-eval $(keychain --agents ssh --eval --noask --nogui --quiet GitHub GitLab ubuntu openwrt)
-gpg-connect-agent --quiet updatestartuptty /bye >/dev/null
-gpg-connect-agent --quiet reloadagent /bye

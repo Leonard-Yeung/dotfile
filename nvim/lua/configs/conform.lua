@@ -4,21 +4,15 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     javascript = { "prettier" },
-    typescript = { "prettier" },
     javascriptreact = { "prettier" },
+    typescript = { "prettier" },
     typescriptreact = { "prettier" },
     json = { "prettier" },
     yaml = { "prettier" },
-    dockerfile = { "prettier" },
   },
 
   format_after_save = {
-    async = true,
-    lsp_fallback = true,
-  },
-  default_format_opts = {
-    async = true,
-    lsp_fallback = true,
+    lsp_format = "fallback",
   },
 }
 

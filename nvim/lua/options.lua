@@ -20,3 +20,4 @@ o.ignorecase = true
 o.smartcase = true
 o.updatetime = 250
 o.scrolloff = 15
+o.laststatus = 3
